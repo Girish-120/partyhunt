@@ -1,0 +1,142 @@
+{
+  "parameters": {
+    "isSkipLogin": {
+      "defaultValue": {
+        "value": "false"
+      },
+      "valueType": "BOOLEAN"
+    },
+    "claimUndergroundForm": {
+      "defaultValue": {
+        "value": "https://forms.gle/gpfkyW6HPTBqGd7w7"
+      },
+      "valueType": "STRING"
+    },
+    "appUrl": {
+      "defaultValue": {
+        "value": "http://bit.ly/2ISncfJ,https://apple.co/2AnotbO"
+      },
+      "valueType": "STRING"
+    },
+    "claimBrandForm": {
+      "defaultValue": {
+        "value": "https://forms.gle/Jk2qSBJC1LSNtcaE9"
+      },
+      "valueType": "STRING"
+    },
+    "subscriptionFee": {
+      "defaultValue": {
+        "value": "999"
+      },
+      "valueType": "STRING"
+    },
+    "forceUpdateBuildNumber": {
+      "defaultValue": {
+        "value": "30300"
+      },
+      "valueType": "STRING"
+    },
+    "countVenues": {
+      "defaultValue": {
+        "value": "1200"
+      },
+      "valueType": "STRING"
+    },
+    "defaultFilterEntryFee": {
+      "defaultValue": {
+        "value": "1000"
+      },
+      "valueType": "STRING"
+    },
+    "editorEmailIds": {
+      "defaultValue": {
+        "value": "rachit@partyhunt.com"
+      },
+      "valueType": "STRING"
+    },
+    "adminEmailIds": {
+      "defaultValue": {
+        "value": "lafitteaurelie40@gmail.com,shaked2faraggi@gmail.com,thegoalife@gmail.com,shaked@partyhunt.com"
+      },
+      "valueType": "STRING"
+    },
+    "limitRadius": {
+      "defaultValue": {
+        "value": "50"
+      },
+      "valueType": "STRING"
+    },
+    "forceUpdateCurrentVersion": {
+      "defaultValue": {
+        "value": "2.0"
+      },
+      "valueType": "STRING"
+    },
+    "forceUpdate": {
+      "defaultValue": {
+        "value": "false"
+      },
+      "valueType": "STRING"
+    },
+    "listTypesMusic": {
+      "defaultValue": {
+        "value": "Acoustic,Blues,Bollywood,Classical,Country,Disco,Drum & Bass,Electronic,Folk,Funk,Hip Hop,House,Jazz,Latin,Metal,Pop,R&B,Reggae,Retro,Rock,Techno,Trance,World"
+      },
+      "valueType": "STRING"
+    },
+    "defaultFilterEditedAt": {
+      "defaultValue": {
+        "value": "20"
+      },
+      "valueType": "STRING"
+    },
+    "undergroundSessions": {
+      "defaultValue": {
+        "value": "20"
+      },
+      "valueType": "STRING"
+    },
+    "countTotalUsers": {
+      "defaultValue": {
+        "value": "150000"
+      },
+      "valueType": "STRING"
+    },
+    "undergroundDays": {
+      "defaultValue": {
+        "value": "20"
+      },
+      "valueType": "STRING"
+    },
+    "editorUids": {
+      "defaultValue": {
+        "value": "jTrwJ8f6cRZhv66CT3GbbCEtrP52,apy38LkpKybO3f2SHsLXMO4xj7i1,o0BuQRBeDuPQy7huNJAQcUe1gnm1,zIdcjJgV5oQr3d6oVdsMyv5IoNy2,xWLiz6nXjUZNnjRmhANJ1NkLGiz2,sSMSvUzLyTVnq4BgiflWB9QIjHE2,112440449830495327418,ZP3zuEN4yKbpKXOiC4Ph6UMLRaF2,sSMSvUzLyTVnq4BgiflWB9QIjHE2,sTobCwv2AYXvASO3m6hldvVeHtT2,sbbe7c3VoUda6yYeBaQNwV84d1r2,Im0p0RHdJJfPmY5cJwoPBwDEcpm2"
+      },
+      "valueType": "STRING"
+    },
+    "locations": {
+      "defaultValue": {
+        "value": "[   {     \"location\": \"Goa\",     \"lat\": 15.386,     \"lng\": 73.844,     \"radius\": 50,     \"strict\": true   },   {     \"location\": \"Mumbai\",     \"lat\": 19.076,     \"lng\": 72.8777,     \"radius\": 100,     \"strict\": true   } ]"
+      },
+      "valueType": "STRING"
+    },
+    "strContact": {
+      "defaultValue": {
+        "value": "+91-9588440479"
+      },
+      "valueType": "STRING"
+    },
+    "defaultFilterDistance": {
+      "defaultValue": {
+        "value": "30"
+      },
+      "valueType": "STRING"
+    },
+    "listTypesParty": {
+      "defaultValue": {
+        "value": "After Party,Beach Party,Clubbing,Day Party,Ecstatic Dance,Festival,House Party,Jamming,Karaoke,Late Night,Live Concert,Open Mic,Pool Party,Rave,Workshop"
+      },
+      "valueType": "STRING"
+    }
+  }
+}
