@@ -1,0 +1,9 @@
+{
+  "bigquery": {
+    "tablename": "collection_events",
+    "datasetname": "firestore_collections"
+  },
+  "environment": {
+    "uid_admin": "Dl0Wpf2RVWSxj1n5uoRAieueKof1"
+  }
+}
