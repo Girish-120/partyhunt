@@ -1,0 +1,107 @@
+image: node:latest
+
+pipelines:
+  default:
+    - step:
+        name: Test
+        caches:
+          - functions-npm
+        script:          
+          - echo test will go here
+        artifacts:
+          - build/**
+  branches:
+    master:        
+      - step:
+          name: Deploy to Firebase Prod
+          caches:
+            - functions-npm
+          script:
+            - export PATH=$PATH:$BITBUCKET_CLONE_DIR/functions/node_modules/.bin
+            - cd functions
+            - npm install
+            - mkdir src/JSONs
+            - echo "$SERVICE_ACCOUNT_KEY_PROD" > src/JSONs/serviceAccountKey_prod.json
+            - export GOOGLE_APPLICATION_CREDENTIALS='src/JSONs/serviceAccountKey_prod.json'
+            - export FIREBASE_APP_STORAGE_BUCKET=$FIREBASE_APP_STORAGE_BUCKET_PROD
+            - export FIREBASE_APP_PROJECT_ID=$FIREBASE_APP_PROJECT_ID_PROD
+            - npm install firebase-tools
+            - firebase use prod
+                --token $FIREBASE_TOKEN_PROD
+            - fireway migrate --require="ts-node/register"    
+            - firebase deploy
+                --only functions --force
+                --token $FIREBASE_TOKEN_PROD
+
+    staging:        
+      - step:
+          name: Deploy to Firebase Prod via staging
+          caches:
+            - functions-npm
+          script:
+            - export PATH=$PATH:$BITBUCKET_CLONE_DIR/functions/node_modules/.bin
+            - cd functions
+
+            # Create secure service account file
+            - mkdir -p src/JSONs
+            - echo "$SERVICE_ACCOUNT_KEY_PROD" > src/JSONs/serviceAccountKey_prod.json
+
+            # Set required environment variables for Firebase + app
+            - export GOOGLE_APPLICATION_CREDENTIALS='src/JSONs/serviceAccountKey_prod.json'
+            - export FIREBASE_APP_STORAGE_BUCKET=$FIREBASE_APP_STORAGE_BUCKET_PROD
+            - export FIREBASE_APP_PROJECT_ID=$FIREBASE_APP_PROJECT_ID_PROD
+
+            # Install dependencies
+            - echo "Dumping package.json for debug"
+            - cat package.json
+            - echo "Installing dependencies"
+            - npm install --verbose
+            - npm install firebase-tools
+
+            # Set Firebase project context (optional with service account, can be skipped)
+            - firebase use prod --token $FIREBASE_TOKEN_PROD || echo "Skipping firebase use, service account handles project context"
+
+            # Run Fireway migrations
+            - fireway migrate --require="ts-node/register"    
+
+            # Deploy Cloud Functions using service account
+            - firebase deploy --only functions --force --token $FIREBASE_TOKEN_PROD
+
+    develop:        
+      - step:
+          name: Deploy to Firebase Dev
+          oidc: true
+          caches:
+            - functions-npm
+          script:
+            - export PATH=$PATH:$BITBUCKET_CLONE_DIR/functions/node_modules/.bin
+            - cd functions
+
+            # Create secure service account file
+            - mkdir -p src/JSONs
+            - echo "$SERVICE_ACCOUNT_KEY_DEV" > src/JSONs/serviceAccountKey_dev.json
+
+            # Set required environment variables for Firebase + app
+            - export GOOGLE_APPLICATION_CREDENTIALS="src/JSONs/serviceAccountKey_dev.json"
+            - export FIREBASE_APP_STORAGE_BUCKET=$FIREBASE_APP_STORAGE_BUCKET_DEV
+            - export FIREBASE_APP_PROJECT_ID=$FIREBASE_APP_PROJECT_ID_DEV
+
+            # Install dependencies
+            - echo "Dumping package.json for debug"
+            - cat package.json
+            - echo "Installing dependencies"
+            - npm install --verbose
+            - npm install firebase-tools
+
+            # Set Firebase project context (optional with service account, can be skipped)
+            - firebase use dev --token $FIREBASE_TOKEN_DEV || echo "Skipping firebase use, service account handles project context"
+
+            # Run Fireway migrations
+            - fireway migrate --require="ts-node/register"    
+
+            # Deploy Cloud Functions using service account
+            - firebase deploy --only functions --force --token $FIREBASE_TOKEN_DEV
+   
+definitions:
+  caches:
+    functions-npm: $BITBUCKET_CLONE_DIR/functions/node_modules

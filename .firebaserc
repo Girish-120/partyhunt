@@ -1,0 +1,11 @@
+{
+  "projects": {
+    "default": "test-project-921a5"
+  },
+  "targets": {},
+  "etags": {
+    "party-hunt": {
+      "extensionInstances": {}
+    }
+  }
+}
