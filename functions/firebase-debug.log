@@ -1,0 +1,125 @@
+[debug] [2025-07-21T04:06:53.883Z] ----------------------------------------------------------------------
+[debug] [2025-07-21T04:06:53.885Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2025-07-21T04:06:53.886Z] CLI Version:   14.11.0
+[debug] [2025-07-21T04:06:53.886Z] Platform:      win32
+[debug] [2025-07-21T04:06:53.886Z] Node Version:  v20.12.0
+[debug] [2025-07-21T04:06:53.886Z] Time:          Mon Jul 21 2025 09:36:53 GMT+0530 (India Standard Time)
+[debug] [2025-07-21T04:06:53.886Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-21T04:06:54.143Z] Object "/emulators/database" in "firebase.json" has unknown property: {"additionalProperty":"rules"}
+[debug] [2025-07-21T04:06:54.149Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-21T04:06:54.153Z] > authorizing via signed-in user (girishimg574@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2025-07-21T04:06:54.164Z] [hub] Port 4400 taken on secondary address ::1, will keep searching to find a better port.
+[debug] [2025-07-21T04:06:54.165Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[warn] !  hub: emulator hub unable to start on port 4400, starting on 4401 instead. {"metadata":{"emulator":{"name":"hub"},"message":"emulator hub unable to start on port 4400, starting on 4401 instead."}}
+[debug] [2025-07-21T04:06:54.168Z] assigned listening specs for emulators {"user":{"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hub":[{"address":"127.0.0.1","family":"IPv4","port":4401},{"address":"::1","family":"IPv6","port":4401}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2025-07-21T04:06:54.174Z] [hub] writing locator at C:\Users\hites\AppData\Local\Temp\hub-test-project-921a5.json
+[debug] [2025-07-21T04:06:54.198Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-21T04:06:54.198Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-21T04:06:54.198Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-21T04:06:54.198Z] late-assigned ports for functions and eventarc emulators {"user":{"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hub":[{"address":"127.0.0.1","family":"IPv4","port":4401},{"address":"::1","family":"IPv6","port":4401}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2025-07-21T04:06:54.221Z] defaultcredentials: writing to file C:\Users\hites\AppData\Roaming\firebase\girishimg574_gmail_com_application_default_credentials.json
+[debug] [2025-07-21T04:06:54.225Z] Setting GAC to C:\Users\hites\AppData\Roaming\firebase\girishimg574_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\hites\\AppData\\Roaming\\firebase\\girishimg574_gmail_com_application_default_credentials.json"}}
+[debug] [2025-07-21T04:06:54.227Z] Checked if tokens are valid: true, expires at: 1753074345786
+[debug] [2025-07-21T04:06:54.227Z] Checked if tokens are valid: true, expires at: 1753074345786
+[debug] [2025-07-21T04:06:54.228Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/test-project-921a5/adminSdkConfig [none]
+[debug] [2025-07-21T04:06:54.882Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/test-project-921a5/adminSdkConfig 200
+[debug] [2025-07-21T04:06:54.882Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/test-project-921a5/adminSdkConfig {"projectId":"test-project-921a5","storageBucket":"test-project-921a5.firebasestorage.app"}
+[info] i  functions: Watching "C:\Users\hites\Downloads\partyhunt-partyhunt_backend-da01fc4a5f65\partyhunt-partyhunt_backend-da01fc4a5f65\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\hites\\Downloads\\partyhunt-partyhunt_backend-da01fc4a5f65\\partyhunt-partyhunt_backend-da01fc4a5f65\\functions\" for Cloud Functions..."}}
+[debug] [2025-07-21T04:06:54.919Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2025-07-21T04:06:55.703Z] > [functions] package.json contents: {
+  "name": "functions",
+  "version": "3.4.2",
+  "description": "cloud functions for partyhunt dev/prod",
+  "main": "lib/index.js",
+  "engines": {
+    "node": "20"
+  },
+  "private": true,
+  "scripts": {
+    "lint": "eslint ./src --ext .ts",
+    "lint:fix": "eslint ./src --ext .ts --fix",
+    "serve": "tsc -w | firebase serve --only functions",
+    "start": "npm run shell",
+    "shell": "npm run build && firebase functions:shell",
+    "build": "tsc",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "test": "mocha",
+    "test2": "firebase emulators:exec \"./my-test.sh\"",
+    "export": "../scripts/export-to-emulator",
+    "dev": "tsc -w | firebase emulators:start --import ./exported"
+  },
+  "dependencies": {
+    "@firebase/logger": "^0.4.4",
+    "@google-cloud/secret-manager": "^6.0.1",
+    "@types/express": "^4.17.22",
+    "@types/papaparse": "^5.3.16",
+    "api": "^6.1.3",
+    "axios": "^1.3.3",
+    "dotenv": "^17.2.0",
+    "express": "^4.21.2",
+    "firebase": "^9.23.0",
+    "firebase-admin": "^11.11.1",
+    "firebase-functions": "^5.1.1",
+    "fireway": "^1.1.0",
+    "fs": "^0.0.1-security",
+    "google-auth-library": "^8.9.0",
+    "googleapis": "^108.0.1",
+    "moment-timezone": "^0.5.48",
+    "node-fetch": "^3.3.0",
+    "nodemailer": "^6.10.1",
+    "npm": "^9.9.4",
+    "papaparse": "^5.4.1",
+    "razorpay": "^2.8.3",
+    "redis": "^4.7.1",
+    "stream-chat": "^8.60.0",
+    "tough-cookie": "^4.1.4"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@types/dotenv": "^6.1.1",
+    "@types/nodemailer": "^6.4.7",
+    "@types/uuid": "^9.0.8",
+    "@typescript-eslint/eslint-plugin": "^8.33.0",
+    "@typescript-eslint/parser": "^8.33.0",
+    "chai": "^4.5.0",
+    "eslint": "^9.27.0",
+    "eslint-plugin-import": "^2.31.0",
+    "firebase-functions-test": "^2.4.0",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.4.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.33.0",
+    "uuid": "^9.0.1"
+  }
+}
+[debug] [2025-07-21T04:06:55.704Z] Building nodejs source
+[debug] [2025-07-21T04:06:55.704Z] Failed to find version of module node: reached end of search path C:\Users\hites\Downloads\partyhunt-partyhunt_backend-da01fc4a5f65\partyhunt-partyhunt_backend-da01fc4a5f65\functions\node_modules
+[info] +  functions: Using node@20 from host. 
+[debug] [2025-07-21T04:06:55.707Z] Failed to validate key apiBearerToken: Error: Key apiBearerToken must start with an uppercase ASCII letter or underscore, and then consist of uppercase ASCII letters, digits, and underscores.
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env. {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to load environment variables from .env."}}
+[debug] [2025-07-21T04:06:55.719Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4401
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2025-07-21T04:07:21.016Z] [work-queue] {"queuedWork":["/test-project-921a5/us-central1/webApi/api/v1/eventListHomeToday-2025-07-21T04:07:21.016Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2025-07-21T04:07:21.017Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/test-project-921a5/us-central1/webApi/api/v1/eventListHomeToday-2025-07-21T04:07:21.016Z"],"workRunningCount":1}
+[debug] [2025-07-21T04:07:21.020Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
