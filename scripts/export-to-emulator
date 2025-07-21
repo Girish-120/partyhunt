@@ -1,0 +1,8 @@
+# DATE=`date "+%Y%m%d"`
+# timestamp=`date "+%Y-%m-%d--%H-%M-%S"`
+
+gsutil rm -r gs://party-hunt.appspot.com/exported
+gcloud firestore export gs://party-hunt.appspot.com/exported --async
+gsutil -m cp -r gs://party-hunt.appspot.com/exported .
+
+echo "Exported: Dev Firestore Data to Local Firebase Emulator"

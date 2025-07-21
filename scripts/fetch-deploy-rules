@@ -1,0 +1,9 @@
+# Fetch Indexes & Templates
+firebase remoteconfig:get -o rules/remoteconfig.template.json
+firebase firestore:indexes > rules/firestore.indexes.json
+# firebase firestore:indexes
+
+# Deploy Rules
+firebase deploy --only storage
+firebase deploy --only database
+firebase deploy --only firestore:rules
