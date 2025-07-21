@@ -1,0 +1,154 @@
+// Expected: is bool,constraint,duration,float,int,latlng,list,number,map,string,timestamp,path
+// read,write,update,create
+rules_version = "2"
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+
+function isEvent(event){
+  return  isSignedIn()
+  && event.size() >= 17 //20 
+  && event.docId is string
+  && event.picture is string
+  && event.picture_thumbnail is string
+  && event.eventName is string
+  && event.description is string
+  && event.typeMusic is string
+  && event.typeParty is string
+  && event.ownerId is string
+  && event.ownerEmail is string
+  && event.idPlace is string
+  && event.appName == 'partyhunt_goa'
+
+  && event.createdAt is timestamp
+  && event.fromDate is timestamp
+  && event.toDate is timestamp
+
+  && event.entryFee is int
+  && event.isWeekly is bool
+  && event.placeData is map
+  && event.likesRefsArray is list
+  && event.publishStatus is int
+  && event.promotionPackage is int
+  && event.commentsCount is int
+}
+
+function isPlace(place){
+  return isSignedIn()
+  && place.size() >= 14
+  && place.idPlace is string
+  && place.name is string
+  && place.icon is string
+  && place.locality is string
+  && place.area is string
+  && place.state is string
+  && place.country is string
+  && place.address is string
+  && place.phone is string
+
+  && place.rating is number
+  && place.types is list
+  && place.publishStatus is int
+  && place.latLng is latlng
+  && place.appName == 'partyhunt_goa'
+  // && promotionsSubscription is int
+}
+
+function isUser(user){
+  return isSignedIn() 
+  && user.size() >= 14
+  && user.uid is string
+  && user.phone is string
+  && user.providerId is string
+  && user.photoUrl is string
+  && user.email is string
+  && user.displayName is string
+  && user.gender is string
+  && user.fcmToken is string
+  && user.country is string
+  && user.tagline is string
+  && user.bio is string
+  
+  && user.isPublic is bool
+  && user.listProviderData is list
+  && user.followers is list
+  && user.following is list
+  
+  && user.createdAt is timestamp
+  && user.lastSession is timestamp
+  && user.lastLogin is timestamp
+  && user.lastLocation is latlng
+  
+  && user.age is int
+	&& user.countSessions is int
+	&& user.countDiscount100 is int
+	&& user.countDiscount20Percent is int
+}
+
+function isComment(comment){
+  return isSignedIn()
+  && comment.size() >= 4 //20 
+  && comment.comment is string
+  && comment.timestamp is timestamp
+  && comment.userId is string
+  && comment.userName is string
+  && comment.userPic is string
+  && comment.eventId is string
+}
+
+function isSignedIn(){
+   return request.auth != null;
+}
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow create, delete, read: if isSignedIn();
+      // allow delete: 
+      // if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "Admin";
+      // allow delete: if request.auth.uid == resource.data.author;
+    }
+    
+    match /events/{eventId} {
+    	allow read, update : if isSignedIn();
+    	allow create : if isEvent(request.resource.data);
+  		// && request.resource.data.fromDate == resource.data.fromDate;
+      
+    	match /comments_collection/{comment} {
+      	allow read, create, update : if isComment(request.resource.data);
+    	}
+      
+      match /promotions_collection/{promotion} {
+      	allow read, create, update: if isSignedIn();
+        // if isPromotion(request.resource.data);
+    	}
+    }
+
+    match /users/{userId} {
+    	allow read, update;
+    	// allow : 
+    	// if (request.resource.data.fcmToken == "" 
+    	// || isUser(request.resource.data));
+      allow create : if isUser(request.resource.data);
+    }
+    
+  	match /tags/{tagId} {
+    	allow read, write;
+      // allow create : if isTag(request.resource.data);
+    }
+
+		match /brands/{brandId} {
+    	allow read, write;
+      // allow create : if isBrand(request.resource.data);
+    }
+  
+    match /places/{placeId} {
+      allow read, create, update: if isPlace(request.resource.data);
+    }
+  }
+}
