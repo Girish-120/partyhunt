@@ -11,15 +11,15 @@
     "lint": "eslint ./src --ext .ts",
     "lint:fix": "eslint ./src --ext .ts --fix",
     "serve": "tsc -w | firebase serve --only functions",
-    "start": "npm run shell",
+    "start": "node init && npm run shell",
     "shell": "npm run build && firebase functions:shell",
-    "build": "tsc",
+    "build": "node init && tsc",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
     "test": "mocha",
     "test2": "firebase emulators:exec \"./my-test.sh\"",
     "export": "../scripts/export-to-emulator",
-    "dev": "tsc -w | firebase emulators:start --import ./exported"
+    "dev": "node init && tsc -w | firebase emulators:start --import ./exported"
   },
   "dependencies": {
     "@firebase/logger": "^0.4.4",
